@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pi Investment Platform</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #e0f7fa, #e1bee7);
+      color: #333;
+    }
+    header {
+      background-color: #4A90E2;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .main {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 40px 20px;
+    }
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: scale(1.02);
+    }
+    .btn {
+      margin-top: 25px;
+      padding: 15px 30px;
+      background: #4A90E2;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: #357ABD;
+    }
+    .testimonial-slider {
+      margin-top: 60px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      height: 80px;
+    }
+    .testimonial {
+      position: absolute;
+      width: 100%;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      font-style: italic;
+      font-size: 18px;
+      color: #444;
+    }
+    .testimonial.active {
+      opacity: 1;
+    }
+    footer {
+      background: #4A90E2;
+      color: white;
+      padding: 10px 0;
+      text-align: center;
+      margin-top: 50px;
+    }
+  </style>
+  <script>
+    let currentIndex = 0;
+    function showTestimonial(index) {
+      const testimonials = document.querySelectorAll('.testimonial');
+      testimonials.forEach((el, i) => {
+        el.classList.toggle('active', i === index);
+      });
+    }
+    function rotateTestimonials() {
+      const total = document.querySelectorAll('.testimonial').length;
+      currentIndex = (currentIndex + 1) % total;
+      showTestimonial(currentIndex);
+    }
+    window.onload = () => {
+      showTestimonial(currentIndex);
+      setInterval(rotateTestimonials, 4000);
+    };
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Pi Investment Platform</h1>
+    <p>Secure, Reliable, and Rewarding</p>
+  </header>
+  <div class="main">
+    <div class="card">
+      <h2>Earn 10% Daily with Pi</h2>
+      <p>Start earning from your Pi balance. If you hold more than <strong>50 Pi</strong>, you are eligible for a <strong>10% daily return</strong>.</p>
+      <p>No hidden fees. Just results.</p>
+      <a href="redirect.html" class="btn">Get Started Now</a>
+    </div>
+    <div class="testimonial-slider">
+      <div class="testimonial active">"I thought it was fake, but I got my returns the next day!" - James</div>
+      <div class="testimonial">"This platform is a shocker. Totally unexpected results!" - Amina</div>
+      <div class="testimonial">"I doubted it at first, but now I check my wallet every morning!" - Lee</div>
+      <div class="testimonial">"Honestly, I still can't believe this is real." - Marta</div>
+      <div class="testimonial">"I’ve told all my friends about it. It’s been a game changer!" - Daniel</div>
+      <div class="testimonial">"Was skeptical, but it works exactly as promised!" - Sylvia</div>
+    </div>
+  </div>
+  <footer>
+    &copy; 2025 Pi Investment Platform. All rights reserved.
+  </footer>
+</body>
+</html>
